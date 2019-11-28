@@ -1,0 +1,20 @@
+<h3 class="text-center">Update Notice</h3>
+<hr/>
+<div [hidden]="submitted">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Title</label>
+      <input type="text" class="form-control" id="title" required [(ngModel)]="notice.title" name="title">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Description</label>
+      <textarea type="text" class="form-control" id="description" required [(ngModel)]="notice.description" name="description"></textarea>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4">
+        <button (click)="gotoList()" class="btn btn-primary">Back</button><br>
+        <button type="submit" class="btn btn-success" style="margin-left: 10px">Submit</button>
+    </div>
+  </form>
+</div>

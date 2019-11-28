@@ -1,0 +1,19 @@
+<h2 class="text-center">Notice Details</h2> 
+<hr/>
+<div *ngIf="notice">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading"> <label><b>Title: </b></label> {{notice.title}} </h4>
+        <h5 class="alert-heading"> <label><b>ID: </b></label> {{notice.id}} </h5>
+        <p>{{notice.description}}</p>
+        <hr>
+        <div class="d-flex justify-content-between">
+            <div> <label><b>Published on: </b></label> {{notice.publishedOn | date: 'dd/MM/yyyy'}} </div>
+            <div> <label><b>First viewed on: </b></label> {{ notice.viewedOn ? (notice.viewedOn | date: 'dd/MM/yyyy') : 'Now'}} </div>
+        </div>
+    </div>  
+</div>
+<div class="d-flex justify-content-center">
+    <button (click)="list()" class="btn btn-primary mr-auto p-2">Back</button><br>
+    <button (click)="updateNotice(notice.id)" class="btn btn-info">Edit</button>
+    <button (click)="deleteNotice(notice.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
+</div>

@@ -1,0 +1,40 @@
+<div class="panel panel-primary">
+  <div class="panel-body">
+    <div class="card text-center m-3">
+        <div class="card-header">
+            <h2 class="float-left">Bulletin Board</h2> 
+            <button (click)="addNotice()" class="btn btn-success float-right">Add Notice</button>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th>Title</th>
+                    <th>Viewed</th>
+                    <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let notice of pageOfItems">
+                        <td class="{{notice.viewedOn ? 'font-italic' : 'font-weight-bold'}}">{{notice.title}}</td>
+                        <td class="{{notice.viewedOn ? 'font-italic' : 'font-weight-bold'}}">{{notice.viewedOn ? 'Yes' : 'No'}}</td>
+                        <td>
+                            <button (click)="noticeDetails(notice.id)" class="btn btn-primary" style="margin-left: 10px">Open</button>
+                            <button (click)="updateNotice(notice.id)" class="btn btn-info" style="margin-left: 10px">Edit</button>
+                            <button (click)="deleteNotice(notice.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div *ngIf="!(pageOfItems?.length > 0)">
+                <div class="alert alert-info" role="alert">
+                    No notices are currently registered. <a href="add" class="alert-link">Click here to add one.</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer pb-0 pt-3">
+            <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
+        </div>
+    </div>
+  </div>
+</div>
