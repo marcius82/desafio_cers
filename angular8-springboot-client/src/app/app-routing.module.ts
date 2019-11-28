@@ -6,7 +6,7 @@ import { NoticeListComponent } from './notice-list/notice-list.component';
 import { UpdateNoticeComponent } from './update-notice/update-notice.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'notice', pathMatch: 'full' },
+  { path: '', redirectTo: 'notices', pathMatch: 'full' },
   { path: 'notices', component: NoticeListComponent },
   { path: 'add', component: CreateNoticeComponent },
   { path: 'update/:id', component: UpdateNoticeComponent },
